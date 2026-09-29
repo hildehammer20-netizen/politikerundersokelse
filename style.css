@@ -26,9 +26,14 @@ textarea{min-height:130px;resize:vertical;line-height:1.45;margin-top:5px}
 .optional{font-size:12px;color:var(--muted);margin:7px 0 0}
 .conditional{display:none}.conditional.show{display:block}
 .error{min-height:22px;color:#a11;font-size:14px;font-weight:700;margin:15px 0 3px}
-.submit{display:block;width:100%;background:var(--blue);border:1px solid var(--blue);color:#fff;font:inherit;font-weight:800;font-size:17px;border-radius:3px;padding:15px 20px;cursor:pointer}
+.submit{position:relative;overflow:hidden;display:block;width:100%;background:var(--blue);border:1px solid var(--blue);color:#fff;font:inherit;font-weight:800;font-size:17px;border-radius:3px;padding:15px 20px;cursor:pointer}
+.submit .submit-text{position:relative;z-index:2}
+.submit::after{content:"";position:absolute;z-index:1;left:0;bottom:0;height:4px;width:0;background:rgba(255,255,255,.72);transition:width .2s ease}
+.submit.sending::after{animation:send-progress 3.6s ease-out forwards}
+.submit.sent::after{animation:none;width:100%;transition:width .15s ease}
+@keyframes send-progress{0%{width:0}35%{width:48%}70%{width:75%}100%{width:90%}}
 .submit:hover{background:var(--blue-dark)}
-.submit:disabled{opacity:.6;cursor:default}
+.submit:disabled{opacity:1;cursor:default}
 .hidden{display:none!important}
 .thanks{border-top:5px solid var(--blue);padding-top:30px;margin-top:38px}
 .thanks h2{font-family:Georgia,'Times New Roman',serif;font-size:38px;line-height:1.05;margin:0 0 10px}

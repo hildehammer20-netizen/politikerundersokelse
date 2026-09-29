@@ -7,6 +7,7 @@ const followup = document.getElementById("followup");
 const reasonLabel = document.getElementById("reasonLabel");
 const errorBox = document.getElementById("error");
 const submitBtn = document.getElementById("submitBtn");
+const submitText = submitBtn.querySelector(".submit-text");
 
 document.querySelectorAll('input[name="newPeriod"]').forEach(input => {
   input.addEventListener("change", () => {
@@ -65,7 +66,9 @@ form.addEventListener("submit", async event => {
   }
 
   submitBtn.disabled = true;
-  submitBtn.textContent = "Sender …";
+  submitText.textContent = "Sender …";
+  submitBtn.classList.remove("sent");
+  submitBtn.classList.add("sending");
 
   try {
     await fetch(GOOGLE_SCRIPT_URL, {
@@ -75,6 +78,10 @@ form.addEventListener("submit", async event => {
       body: JSON.stringify(payload)
     });
 
+    submitBtn.classList.remove("sending");
+    submitBtn.classList.add("sent");
+    await new Promise(resolve => setTimeout(resolve, 180));
+
     form.classList.add("hidden");
     document.getElementById("surveyIntro").classList.add("hidden");
     document.getElementById("thanks").classList.remove("hidden");
@@ -83,7 +90,8 @@ form.addEventListener("submit", async event => {
     errorBox.textContent = "Noe gikk galt. Prøv igjen.";
   } finally {
     submitBtn.disabled = false;
-    submitBtn.textContent = "Ferdig";
+    submitBtn.classList.remove("sending", "sent");
+    submitText.textContent = "Ferdig";
   }
 });
 
