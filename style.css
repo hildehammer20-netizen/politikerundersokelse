@@ -1,5 +1,5 @@
 *{box-sizing:border-box}
-:root{--blue:#078bd2;--blue-dark:#006da8;--ink:#111;--muted:#62676b;--line:#dfe3e6;--soft:#f4f8fa}
+:root{--blue:#078fd3;--blue-dark:#087fb9;--ink:#111;--muted:#62676b;--line:#dfe3e6;--soft:#f4f8fa}
 html,body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
 body{padding:28px 14px 50px}
 .wrap{max-width:680px;margin:0 auto}

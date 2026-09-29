@@ -76,6 +76,7 @@ form.addEventListener("submit", async event => {
     });
 
     form.classList.add("hidden");
+    document.getElementById("surveyIntro").classList.add("hidden");
     document.getElementById("thanks").classList.remove("hidden");
     sendHeight();
   } catch (error) {
