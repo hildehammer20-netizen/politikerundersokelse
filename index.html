@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Valget 2027 – Oppegård Avis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <section class="survey" aria-labelledby="title">
+      <header class="masthead">
+        <img src="oa-logo.png" alt="Oppegård Avis" class="logo">
+        <div class="rule"></div>
+        <p class="kicker">VALGET 2027</p>
+        <h1 id="title">Tar du fire nye år?</h1>
+        <p class="intro">Oppegård Avis kartlegger hvem av dagens kommunestyrerepresentanter som ønsker å fortsette etter valget i 2027.</p>
+      </header>
+
+      <form id="surveyForm" novalidate>
+        <div class="field">
+          <label for="name">Navn</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Fornavn og etternavn">
+        </div>
+
+        <div class="field">
+          <label for="party">Parti</label>
+          <select id="party" name="party">
+            <option value="">Velg parti</option>
+            <option>Høyre</option>
+            <option>Arbeiderpartiet</option>
+            <option>Fremskrittspartiet</option>
+            <option>Miljøpartiet De Grønne</option>
+            <option>Venstre</option>
+            <option>Sosialistisk Venstreparti</option>
+            <option>Pensjonistpartiet</option>
+            <option>Senterpartiet</option>
+            <option>Rødt</option>
+            <option>Kristelig Folkeparti</option>
+            <option>Partiet Sentrum</option>
+          </select>
+        </div>
+
+        <fieldset class="period">
+          <legend>Ønsker du en ny periode i kommunestyret?</legend>
+          <div class="choices">
+            <label class="choice">
+              <input type="radio" name="newPeriod" value="Ja">
+              <span>Ja</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="newPeriod" value="Nei">
+              <span>Nei</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="newPeriod" value="Har ikke bestemt meg">
+              <span>Har ikke bestemt meg</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div id="followup" class="followup conditional">
+          <label id="reasonLabel" for="reason">Hvis du svarte nei: Hva er årsaken til at du ikke ønsker en ny periode?</label>
+          <textarea id="reason" name="reason" placeholder="Skriv svaret ditt her"></textarea>
+          <p class="optional">Valgfritt</p>
+        </div>
+
+        <div class="error" id="error" role="alert"></div>
+        <button type="submit" class="submit" id="submitBtn">Ferdig</button>
+      </form>
+
+      <section id="thanks" class="thanks hidden">
+        <p class="kicker">SVARET ER SENDT</p>
+        <h2>Takk for svaret.</h2>
+        <p>Besvarelsen er registrert hos Oppegård Avis.</p>
+      </section>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
